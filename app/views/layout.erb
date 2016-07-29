@@ -18,6 +18,20 @@
   <title></title>
 </head>
 <body>
+  <nav id="standard">
+  <header> <a href="/">Bagel Your Feelings Away</a></header>
+  <ul>
+    <% if current_user %>
+      <li><%= current_user.username %></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/logout">Logout</a></li>
+    <% else %>
+      <li><a href="/">Home</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/register">Register</a></li>
+    </ul>
+    <% end %>
+  </nav>
   <%= yield %>
 </body>
 </html>
