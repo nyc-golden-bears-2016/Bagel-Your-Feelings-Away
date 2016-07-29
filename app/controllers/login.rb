@@ -1,16 +1,17 @@
 get '/login' do
-  erb :'/user/login'
+  erb :'user/login'
 end
 
 post '/login' do
-   user = User.find_by({:username => params[:username]})
-   if user && user.authenticate(params[:password])
+  binding.pry
+  user = User.find_by({:email => params[:email]})
+  if user && user.authenticate(params[:password])
     session[:user_id] = user.id
     redirect '/'
   else
       @errors = ["Email and/or Password incorrect"]
-      erb :'users/login'
-    end
+      erb :'user/login'
+  end
 end
 
 get '/logout' do
