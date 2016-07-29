@@ -15,9 +15,22 @@
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Bagel Your Feelings Away</title>
 </head>
 <body>
+  <nav>
+  <header> <a href="/">Bagel Your Feelings Away</a></header>
+  <% if logged_in? %>
+    Welcome, <%=current_user.username%>
+    <br>
+    <a href="/logout">Sign Out</a>
+    <br>
+  <% else %>
+    <a href="/login">Login</a>
+    <br>
+    <a href="/register">Register</a>
+    <br>
+  <% end %>
   <%= yield %>
 </body>
 </html>
